@@ -14,7 +14,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Total Payments:" FontWeight="Bold" Margin="0,0,10,0" Background="#FF202020" Foreground="White"/>
-        <TextBox Name="txtTotalPayments" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" IsReadOnly="True"/>
+        <TextBox Name="txtTotalPayments" Grid.Row="0" Grid.Column="1" Margin="0,0,0,10" IsReadOnly="True" TextChanged="txtTotalPayments_TextChanged"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Average Wage:" FontWeight="Bold" Margin="0,0,10,0" Foreground="White"/>
         <TextBox Name="txtAverageWage" Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" IsReadOnly="True"/>

@@ -27,5 +27,10 @@ namespace YoutubePayment
             txtAverageWage.Text = $"{payments.Average(p => p.Editor.Wage):C}";
             txtTotalVideos.Text = payments.Sum(p => p.Editor.NumberOfVideos).ToString();
         }
+
+        private void txtTotalPayments_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

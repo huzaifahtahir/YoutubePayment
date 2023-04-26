@@ -178,12 +178,27 @@ namespace YoutubePayment
         {
             if (lstPayments.SelectedItem is Payment selectedPayment)
             {
-                tbPaymentDetails.Text = $"Wage: {selectedPayment.Editor.Wage:C}\n" +
+                string paymentDetails = $"Wage: {selectedPayment.Editor.Wage:C}\n" +
                                          $"Videos: {selectedPayment.Editor.NumberOfVideos}\n" +
                                          $"Bonus: {selectedPayment.Editor.Bonus:C}\n" +
                                          $"Payment Date: {selectedPayment.PaymentDate}\n" +
                                          $"Video Names: {string.Join(", ", selectedPayment.VideoNames)}";
 
+                tbPaymentDetails.Text = paymentDetails;
+
+                string videoNames = string.Join(", ", selectedPayment.VideoNames);
+
+                // Copy payment details to clipboard
+                string formattedPaymentDetails = $"Date: {selectedPayment.PaymentDate}\n" +
+                                                 $"==============================\n" +
+                                                 $"Amount: {selectedPayment.Editor.Wage:C}\n" +
+                                                 $"Videos: {selectedPayment.Editor.NumberOfVideos}\n" +
+                                                 $"Misc: {selectedPayment.Editor.Bonus:C}\n" +
+                                                 $"Video Names: {videoNames}\n" +
+                                                 $"==============================\n" +
+                                                 $"Total: {selectedPayment.Editor.Wage * selectedPayment.Editor.NumberOfVideos + selectedPayment.Editor.Bonus}";
+
+                Clipboard.SetText(formattedPaymentDetails);
             }
         }
 
